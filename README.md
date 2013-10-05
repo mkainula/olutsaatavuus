@@ -25,3 +25,38 @@ By default, the application runs on port 3000, so you can try it out at
 	http://localhost:3000
 	
 Live version of the webapp can be found at http://olutsaatavuus.herokuapp.com
+
+## Data format ##
+
+Availability data is stored in the following format:
+
+	{
+    "_id": {
+        "$oid": "52501d0c0b986219b59dc083"
+    },
+    "name": "Mikkeller Kiin Kiin",
+    "timestamp": "2013-10-05",
+    "amount": 310,
+    "productId": "730504",
+    "availability": [
+        {
+            "amount": "15",
+            "store": "Helsinki Arabianranta Arabia",
+            "history": [
+                {
+                    "date": "2013-10-05",
+                    "amount": "15"
+                },
+                ...
+            ]
+        },
+        ...
+    ],
+    "history": [
+        {
+            "date": "2013-10-05",
+            "amount": 310
+        },
+        ...
+    ]
+	}
