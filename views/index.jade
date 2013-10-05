@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1 
+		a(href="/") Olutsaatavuus
+	p Helsingin Alkoista saatavat oluet:
+	
+	for item in availability
+		li
+			a(href="/product/" + item.name) #{item.name} <b>#{item.amount}</b>
+		br

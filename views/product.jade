@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1 
+		a(href="/") Olutsaatavuus
+	p Tuotteen #{productName} saatavuus:
+	
+	for item in availability
+		for store in item.availability
+			li
+				a(href="/store/" + store.store) #{store.store} <b> #{store.amount} </b>
+				for history in store.history
+					ul #{history.date} <b> #{history.amount} </b>

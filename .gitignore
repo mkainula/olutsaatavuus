@@ -1,0 +1,3 @@
+node_modules/
+scripts/fetch_products_mongolab.py
+scripts/update_availability_mongolab.py
