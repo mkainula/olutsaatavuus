@@ -59,3 +59,18 @@ for page in range(0, pageRange):
 
  			#save the object
 			availabilityCollection.save(availabilityObject)
+
+		else:
+			# new product found, add it to db
+			
+			for store in availabilityData:
+				totalAmount = totalAmount + int(store["Amount"])
+				storeAvailability.append({"store": store["StoreName"], "amount":store["Amount"], "history":[{"amount":store["Amount"], "date":str(datenow)}]})
+
+			#create JSON
+			availabilityCollectionData = {"productId" : product["ProductId"], "name" : product["Name"], "timestamp" : str(datenow), "amount" : totalAmount, "history": [{"amount":totalAmount, "date":str(datenow)}], "availability" : storeAvailability}
+
+			print "Added new product: " + product["Name"]
+
+			#store JSON to DB
+			availabilityCollection.insert(availabilityCollectionData)
