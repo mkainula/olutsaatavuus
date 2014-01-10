@@ -5,7 +5,7 @@ from bson import json_util
 # Alko's API returns only 50 products at a time despite a larger pageSize, so we have to fetch results multiple times.
 pageSize = 50
 pageRange = 6
-availabilityUrl = "http://www.alko.fi/api/product/availability?cityId=Helsinki&languageId=fi&productId="
+availabilityUrl = "http://www.alko.fi/api/product/Availability?cityId=Helsinki&language=fi&productId="
 
 #init DB
 #mongoUrl = "mongodb://<your_mongo_db_here>"
@@ -19,7 +19,7 @@ for page in range(0, pageRange):
 	i = 0
 	print "Page " + str(page) + "/" + str(pageRange)
 
-	productUrl = "http://www.alko.fi/api/search/results?q=&tags=tag%3Aoluet&language=fi&page=" + str(page) + "&pageSize=" + str(pageSize) + "&sort=Default"
+	productUrl = "http://www.alko.fi/api/search/results?Language=fi&Page=" + str(page) + "&PageSize=" + str(pageSize) + "&Query=&SingleGrape=false&Sort=0&TagsStr=tag:oluet"
 
 	#load products
 	productData = json.load(urllib.urlopen(productUrl))
