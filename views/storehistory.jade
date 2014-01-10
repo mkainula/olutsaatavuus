@@ -79,16 +79,23 @@ block content
 
 		})();
 
-	h1 
+	h1
 		a(href="/") Olutsaatavuus
-	p Tuotteen #{productName} saatavuus:
+	p Tuotteen #{productName} historia liikkeessä #{storeName}
 	
 	for item in availability
-		div(id="chart")
-		script.
-			var historydata = !{JSON.stringify(item.history)};
-			HU.init(historydata, #{item.productId});
-
 		for store in item.availability
-			li
-				a(href="/store/" + store.store) #{store.store} <b> #{store.amount} </b>
+			-if(storeName == store.store)
+				div(id="chart")
+				script.
+					i = i + 1
+					var storedata = !{JSON.stringify(store.history)};
+					HU.init(storedata, #{item.productId});
+				
+
+				li 
+					
+					a(href="/product/" + item.name) #{item.name} <b> #{store.amount} </b>
+					for history in store.history
+						ul #{history.date} <b> #{history.amount} </b>
+

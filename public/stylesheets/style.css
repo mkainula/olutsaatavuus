@@ -6,3 +6,22 @@ a {
   color: #00b7ff;
   text-decoration: none;
 }
+chart_div {
+  background-color: #00b7ff;
+  width: 700px;
+  height: 240px;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: none;
+}
+.line {
+  fill: none;
+  stroke: #4682b4;
+  stroke-width: 1.5px;
+}
